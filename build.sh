@@ -31,6 +31,8 @@ initDistroName()
         # Detect Distro
         if [ "$(cat /etc/*-release | grep -cim1 ubuntu)" -eq 1 ]; then
             export __DistroName=ubuntu
+        elif [ "$(cat /etc/*-release | grep -cim1 linuxmint)" -eq 1 ]; then
+            export __DistroName=linuxmint
         elif [ "$(cat /etc/*-release | grep -cim1 centos)" -eq 1 ]; then
             export __DistroName=rhel
         elif [ "$(cat /etc/*-release | grep -cim1 rhel)" -eq 1 ]; then
@@ -209,6 +211,10 @@ isMSBuildOnNETCoreSupported()
                 __isMSBuildOnNETCoreSupported=1
             elif [ "$__DistroName" == "debian" ]; then
                 __isMSBuildOnNETCoreSupported=1
+            elif [ "$__DistroName" == "linuxmint" ]; then
+                if [ "$__OSVersion" == "17.1" ]; then
+                    __isMSBuildOnNETCoreSupported=1
+                fi
             fi
         elif [ "$__BuildOS" == "OSX" ]; then
             __isMSBuildOnNETCoreSupported=1
@@ -271,10 +277,13 @@ build_mscorlib()
            build_mscorlib_ni
        elif [[ ( "$__HostArch" == "arm64" ) && ( "$__BuildArch" == "arm" ) ]]; then
            build_mscorlib_ni
-       else 
-	   exit 1
+       else
+           exit 1
        fi
-    fi 
+    fi
+}
+
+
 }
 
 
