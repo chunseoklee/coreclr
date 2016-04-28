@@ -1,0 +1,641 @@
+root@(none):/home/twoflower/dev/coreclr/bin/Product/Linux.arm.Debug# time ./corerun tailca
+ll.exe
+; Assembly listing for method Class1:Main():int
+; Emitting BLENDED_CODE for generic ARM CPU
+; optimized code
+; r11 based frame
+; partially interruptible
+; Final local variable assignments
+;
+;  V00 loc0         [V00,T04] (  4,   3.5)     ref  ->   r4
+;  V01 loc1         [V01,T01] (  6,   3  )     ref  ->   r5
+;  V02 tmp0         [V02,T02] (  2,   4  )     ref  ->   r0
+;  V03 tmp1         [V03,T00] (  6,   6  )     ref  ->   r0
+;  V04 tmp2         [V04,T03] (  2,   4  )     int  ->   r1
+;* V05 tmp3         [V05,T08] (  0,   0  )     ref  ->  zero-ref
+;  V06 tmp4         [V06,T05] (  2,   2  )     ref  ->   r2
+;* V07 tmp5         [V07,T09] (  0,   0  )     ref  ->  zero-ref
+;  V08 tmp6         [V08,T06] (  2,   2  )     ref  ->   r2
+;# V09 OutArgs      [V09    ] (  1,   1  )  lclBlk ( 0) [sp+0x00]
+;  V10 cse0         [V10,T07] (  1,   1  )     int  ->  [sp+0x04]
+;
+; Lcl frame size = 8
+
+G_M5150_IG01:
+000000  E92D 483C      push    {r2,r3,r4,r5,r11,lr}
+000004  F10D 0B10      add     r11, sp, 16
+
+G_M5150_IG02:
+000008  F242 3358      movw    r3, 0x2358
+00000C  F2C7 3360      movt    r3, 0x7360
+000010  6818           ldr     r0, [r3]
+000012  F24C 234D      movw    r3, 0xc24d
+000016  F2C7 13C4      movt    r3, 0x71c4
+00001A  4798           blx     r3               // System.Console:WriteLine(ref)
+00001C  F246 40A4      movw    r0, 0x64a4
+000020  F2C7 5095      movt    r0, 0x7595
+000024  F646 5339      movw    r3, 0x6d39
+000028  F2C7 6347      movt    r3, 0x7647
+00002C  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+00002E  4604           mov     r4, r0
+000030  F246 00C0      movw    r0, 0x60c0
+000034  F2C7 5095      movt    r0, 0x7595
+000038  2102           movs    r1, 2
+00003A  F242 23D1      movw    r3, 0x22d1
+00003E  F2C7 6347      movt    r3, 0x7647
+000042  4798           blx     r3               // CORINFO_HELP_GETSHARED_NONGCSTATIC_BASE
+000044  F246 01DC      movw    r1, 0x60dc
+000048  F2C7 5195      movt    r1, 0x7595
+00004C  6809           ldr     r1, [r1]
+00004E  4620           mov     r0, r4
+000050  F24C 035D      movw    r3, 0xc05d
+000054  F2C7 13C4      movt    r3, 0x71c4
+000058  4798           blx     r3               // Class1:Recurse1(int):int:this
+00005A  6863           ldr     r3, [r4+4]
+00005C  F246 02E0      movw    r2, 0x60e0
+000060  F2C7 5295      movt    r2, 0x7595
+000064  6812           ldr     r2, [r2]
+000066  4293           cmp     r3, r2
+000068  D061           beq     SHORT G_M5150_IG04
+00006A  F64A 002E      movw    r0, 0xa82e
+00006E  F2C7 10DB      movt    r0, 0x71db
+000072  2104           movs    r1, 4
+000074  F647 630D      movw    r3, 0x7e0d
+000078  F2C7 6347      movt    r3, 0x7647
+00007C  4798           blx     r3               // CORINFO_HELP_NEWARR_1_OBJ
+00007E  4605           mov     r5, r0
+000080  F242 335C      movw    r3, 0x235c
+000084  F2C7 3360      movt    r3, 0x7360
+000088  681A           ldr     r2, [r3]
+00008A  4628           mov     r0, r5
+00008C  2100           movs    r1, 0
+00008E  F648 63FD      movw    r3, 0x8efd
+000092  F2C7 6347      movt    r3, 0x7647
+000096  4798           blx     r3               // CORINFO_HELP_ARRADDR_ST
+000098  F24A 7030      movw    r0, 0xa730
+00009C  F2C7 10DC      movt    r0, 0x71dc
+0000A0  F646 5339      movw    r3, 0x6d39
+0000A4  F2C7 6347      movt    r3, 0x7647
+0000A8  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+0000AA  2301           movs    r3, 1
+0000AC  6043           str     r3, [r0+4]
+0000AE  4602           mov     r2, r0
+0000B0  4628           mov     r0, r5
+0000B2  2101           movs    r1, 1
+0000B4  F648 63FD      movw    r3, 0x8efd
+0000B8  F2C7 6347      movt    r3, 0x7647
+0000BC  4798           blx     r3               // CORINFO_HELP_ARRADDR_ST
+0000BE  F242 3360      movw    r3, 0x2360
+0000C2  F2C7 3360      movt    r3, 0x7360
+0000C6  681A           ldr     r2, [r3]
+0000C8  4628           mov     r0, r5
+0000CA  2102           movs    r1, 2
+0000CC  F648 63FD      movw    r3, 0x8efd
+0000D0  F2C7 6347      movt    r3, 0x7647
+0000D4  4798           blx     r3               // CORINFO_HELP_ARRADDR_ST
+0000D6  F24A 7030      movw    r0, 0xa730
+0000DA  F2C7 10DC      movt    r0, 0x71dc
+0000DE  F646 5339      movw    r3, 0x6d39
+0000E2  F2C7 6347      movt    r3, 0x7647
+0000E6  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+0000E8  6863           ldr     r3, [r4+4]
+0000EA  6043           str     r3, [r0+4]
+0000EC  4602           mov     r2, r0
+0000EE  4628           mov     r0, r5
+0000F0  2103           movs    r1, 3
+0000F2  F648 63FD      movw    r3, 0x8efd
+0000F6  F2C7 6347      movt    r3, 0x7647
+0000FA  4798           blx     r3               // CORINFO_HELP_ARRADDR_ST
+0000FC  4628           mov     r0, r5
+0000FE  F245 63D1      movw    r3, 0x56d1
+000102  F2C7 13DD      movt    r3, 0x71dd
+000106  4798           blx     r3               // System.String:Concat(ref):ref
+000108  F24C 234D      movw    r3, 0xc24d
+00010C  F2C7 13C4      movt    r3, 0x71c4
+000110  4798           blx     r3               // System.Console:WriteLine(ref)
+000112  F242 3364      movw    r3, 0x2364
+000116  F2C7 3360      movt    r3, 0x7360
+00011A  6818           ldr     r0, [r3]
+00011C  F24C 234D      movw    r3, 0xc24d
+000120  F2C7 13C4      movt    r3, 0x71c4
+000124  4798           blx     r3               // System.Console:WriteLine(ref)
+000126  2000           movs    r0, 0
+
+G_M5150_IG03:
+000128  E8BD 483C      pop     {r2,r3,r4,r5,r11,lr}
+00012C  4770           bx      lr
+
+G_M5150_IG04:
+00012E  F242 3368      movw    r3, 0x2368
+000132  F2C7 3360      movt    r3, 0x7360
+000136  6818           ldr     r0, [r3]
+000138  F24C 234D      movw    r3, 0xc24d
+00013C  F2C7 13C4      movt    r3, 0x71c4
+000140  4798           blx     r3               // System.Console:WriteLine(ref)
+000142  2064           movs    r0, 100
+
+G_M5150_IG05:
+000144  E8BD 483C      pop     {r2,r3,r4,r5,r11,lr}
+000148  4770           bx      lr
+
+; Total bytes of code 330, prolog size 8 for method Class1:Main():int
+; ============================================================
+Test Start
+; Assembly listing for method Class1:.cctor()
+; Emitting BLENDED_CODE for generic ARM CPU
+; compiler->opts.MinOpts() is true
+; r11 based frame
+; partially interruptible
+; Final local variable assignments
+;
+;# V00 OutArgs      [V00    ] (  1,   1  )  lclBlk ( 0) [sp+0x00]
+;
+; Lcl frame size = 0
+
+G_M42160_IG01:
+000000  E92D 4C10      push    {r4,r10,r11,lr}
+000004  F10D 0B08      add     r11, sp, 8
+
+G_M42160_IG02:
+000008  F44F 1380      mov     r3, 0x100000
+00000C  F246 02DC      movw    r2, 0x60dc
+000010  F2C7 5295      movt    r2, 0x7595
+000014  6013           str     r3, [r2]
+000016  F44F 1320      mov     r3, 0x280000
+00001A  F246 02E0      movw    r2, 0x60e0
+00001E  F2C7 5295      movt    r2, 0x7595
+000022  6013           str     r3, [r2]
+
+G_M42160_IG03:
+000024  E8BD 4C10      pop     {r4,r10,r11,lr}
+000028  4770           bx      lr
+
+; Total bytes of code 42, prolog size 8 for method Class1:.cctor()
+; ============================================================
+; Assembly listing for method Class1:Recurse1(int):int:this
+; Emitting BLENDED_CODE for generic ARM CPU
+; optimized code
+; r11 based frame
+; partially interruptible
+; Final local variable assignments
+;
+;  V00 this         [V00,T01] (  7,   4.5)     ref  ->   r5         this
+;  V01 arg1         [V01,T00] (  9,   6  )     int  ->   r4
+;  V02 tmp0         [V02,T02] (  3,   3  )     ref  ->   r6
+;  V03 tmp1         [V03,T03] (  3,   3  )     ref  ->   r0
+;* V04 tmp2         [V04,T07] (  0,   0  )     ref  ->  zero-ref
+;  V05 tmp3         [V05,T06] (  2,   2  )     int  ->   r1
+;  V06 tmp4         [V06,T04] (  2,   2  )     ref  ->   r2
+;  V07 tmp5         [V07,T05] (  2,   2  )     ref  ->   r3
+;# V08 OutArgs      [V08    ] (  1,   1  )  lclBlk ( 0) [sp+0x00]
+;
+; Lcl frame size = 4
+
+G_M48067_IG01:
+000000  E92D 4878      push    {r3,r4,r5,r6,r11,lr}
+000004  F10D 0B10      add     r11, sp, 16
+000008  4605           mov     r5, r0
+00000A  460C           mov     r4, r1
+
+G_M48067_IG02:
+00000C  2C00           cmp     r4, 0
+00000E  D103           bne     SHORT G_M48067_IG04
+000010  6868           ldr     r0, [r5+4]
+
+G_M48067_IG03:
+000012  E8BD 4878      pop     {r3,r4,r5,r6,r11,lr}
+000016  4770           bx      lr
+
+G_M48067_IG04:
+000018  686B           ldr     r3, [r5+4]
+00001A  4423           add     r3, r4
+00001C  606B           str     r3, [r5+4]
+00001E  4623           mov     r3, r4
+000020  F240 027F      movw    r2, 0x7f
+000024  F2C8 0200      movt    r2, 0x8000
+000028  4013           ands    r3, r2
+00002A  D503           bpl     SHORT G_M48067_IG05
+00002C  3B01           subs    r3, 1
+00002E  F063 037F      orn     r3, r3, 127
+000032  3301           adds    r3, 1
+
+G_M48067_IG05:
+000034  2B2B           cmp     r3, 43
+000036  D108           bne     SHORT G_M48067_IG07
+000038  1E61           subs    r1, r4, 1
+00003A  4628           mov     r0, r5
+00003C  6803           ldr     r3, [r0]
+00003E  6ADB           ldr     r3, [r3+44]
+000040  691B           ldr     r3, [r3+16]
+000042  4798           blx     r3               // Class1:Recurse3(int):int:this
+
+G_M48067_IG06:
+000044  E8BD 4878      pop     {r3,r4,r5,r6,r11,lr}
+000048  4770           bx      lr
+
+G_M48067_IG07:
+00004A  F24A 7030      movw    r0, 0xa730
+00004E  F2C7 10DC      movt    r0, 0x71dc
+000052  F646 5339      movw    r3, 0x6d39
+000056  F2C7 6347      movt    r3, 0x7647
+00005A  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+00005C  4606           mov     r6, r0
+00005E  F24A 7030      movw    r0, 0xa730
+000062  F2C7 10DC      movt    r0, 0x71dc
+000066  F646 5339      movw    r3, 0x6d39
+00006A  F2C7 6347      movt    r3, 0x7647
+00006E  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+000070  1E61           subs    r1, r4, 1
+000072  6074           str     r4, [r6+4]
+000074  4632           mov     r2, r6
+000076  3401           adds    r4, 1
+000078  6044           str     r4, [r0+4]
+00007A  4603           mov     r3, r0
+00007C  4628           mov     r0, r5
+00007E  F24C 0469      movw    r4, 0xc069
+000082  F2C7 14C4      movt    r4, 0x71c4
+000086  47A0           blx     r4               // Class1:Recurse2(int,ref,ref):int:this
+
+G_M48067_IG08:
+000088  E8BD 4878      pop     {r3,r4,r5,r6,r11,lr}
+00008C  4770           bx      lr
+
+; Total bytes of code 142, prolog size 8 for method Class1:Recurse1(int):int:this
+; ============================================================
+; Assembly listing for method Class1:Recurse2(int,ref,ref):int:this
+; Emitting BLENDED_CODE for generic ARM CPU
+; optimized code
+; r11 based frame
+; partially interruptible
+; Final local variable assignments
+;
+;  V00 this         [V00,T00] (  6,   4  )     ref  ->   r4         this
+;  V01 arg1         [V01,T01] (  5,   4  )     int  ->   r5
+;  V02 arg2         [V02,T02] (  5,   3.2)     ref  ->   r6
+;  V03 arg3         [V03,T03] (  5,   3.2)     ref  ->   r7
+;  V04 loc0         [V04,T04] (  5,   2.5)     ref  ->   r8
+;  V05 tmp0         [V05,T05] (  2,   2  )     int  ->   r8
+;  V06 tmp1         [V06,T06] (  2,   2  )     int  ->   r6
+;  V07 tmp2         [V07,T07] (  2,   2  )     int  ->   r1
+;  V08 OutArgs      [V08    ] (  1,   1  )  lclBlk ( 4) [sp+0x00]
+;
+; Lcl frame size = 12
+
+G_M48067_IG01:
+000000  E92D 49F0      push    {r4,r5,r6,r7,r8,r11,lr}
+000004  B083           sub     sp, 12
+000006  F10D 0B20      add     r11, sp, 32
+00000A  4604           mov     r4, r0
+00000C  460D           mov     r5, r1
+00000E  4616           mov     r6, r2
+000010  461F           mov     r7, r3
+
+G_M48067_IG02:
+000012  2D00           cmp     r5, 0
+000014  D104           bne     SHORT G_M48067_IG04
+000016  6860           ldr     r0, [r4+4]
+
+G_M48067_IG03:
+000018  B003           add     sp, 12
+00001A  E8BD 49F0      pop     {r4,r5,r6,r7,r8,r11,lr}
+00001E  4770           bx      lr
+
+G_M48067_IG04:
+000020  F246 00DC      movw    r0, 0x60dc
+000024  F2C7 5095      movt    r0, 0x7595
+000028  6800           ldr     r0, [r0]
+00002A  210A           movs    r1, 10
+00002C  F64E 2375      movw    r3, 0xea75
+000030  F2C7 6346      movt    r3, 0x7646
+000034  4798           blx     r3               // CORINFO_HELP_DIV
+000036  4601           mov     r1, r0
+000038  4628           mov     r0, r5
+00003A  F64E 3321      movw    r3, 0xeb21
+00003E  F2C7 6346      movt    r3, 0x7646
+000042  4798           blx     r3               // CORINFO_HELP_MOD
+000044  2864           cmp     r0, 100
+000046  D142           bne     SHORT G_M48067_IG06
+000048  F64B 6331      movw    r3, 0xbe31
+00004C  F2C7 13DD      movt    r3, 0x71dd
+000050  4798           blx     r3               // System.Environment:get_StackTrace():ref
+000052  4680           mov     r8, r0
+000054  F8D8 3000      ldr     r3, [r8]
+000058  2300           movs    r3, 0
+00005A  9300           str     r3, [sp]
+00005C  F242 339C      movw    r3, 0x239c
+000060  F2C7 3360      movt    r3, 0x7360
+000064  6819           ldr     r1, [r3]
+000066  F8D8 3004      ldr     r3, [r8+4]
+00006A  4640           mov     r0, r8
+00006C  2200           movs    r2, 0
+00006E  F64A 5EE9      movw    lr, 0xade9
+000072  F2C7 1ED1      movt    lr, 0x71d1
+000076  47F0           blx     lr               // System.String:IndexOf(ref,int,int,int):
+int:this
+000078  F1B0 3FFF      cmp     r0, -1
+00007C  D11F           bne     SHORT G_M48067_IG05
+00007E  F242 33A0      movw    r3, 0x23a0
+000082  F2C7 3360      movt    r3, 0x7360
+000086  6818           ldr     r0, [r3]
+000088  4641           mov     r1, r8
+00008A  F24C 53CD      movw    r3, 0xc5cd
+00008E  F2C7 13DD      movt    r3, 0x71dd
+000092  4798           blx     r3               // System.String:Concat(ref,ref):ref
+000094  F64C 13A5      movw    r3, 0xc9a5
+000098  F2C7 13C4      movt    r3, 0x71c4
+00009C  4798           blx     r3               // System.Console:WriteLine(ref)
+00009E  F242 3364      movw    r3, 0x2364
+0000A2  F2C7 3360      movt    r3, 0x7360
+0000A6  6818           ldr     r0, [r3]
+0000A8  F64C 13A5      movw    r3, 0xc9a5
+0000AC  F2C7 13C4      movt    r3, 0x71c4
+0000B0  4798           blx     r3               // System.Console:WriteLine(ref)
+0000B2  2000           movs    r0, 0
+0000B4  F64B 5311      movw    r3, 0xbd11
+0000B8  F2C7 13DD      movt    r3, 0x71dd
+0000BC  4798           blx     r3               // System.Environment:Exit(int)
+
+G_M48067_IG05:
+0000BE  F04F 30FF      mov     r0, -1
+0000C2  2102           movs    r1, 2
+0000C4  F24B 6331      movw    r3, 0xb631
+0000C8  F2C7 13C8      movt    r3, 0x71c8
+0000CC  4798           blx     r3               // System.GC:_Collect(int,int)
+
+G_M48067_IG06:
+0000CE  F8D4 8004      ldr     r8, [r4+4]
+0000D2  6833           ldr     r3, [r6]
+0000D4  F24A 7230      movw    r2, 0xa730
+0000D8  F2C7 12DC      movt    r2, 0x71dc
+0000DC  4293           cmp     r3, r2
+0000DE  D006           beq     SHORT G_M48067_IG07
+0000E0  4631           mov     r1, r6
+0000E2  4610           mov     r0, r2
+0000E4  F649 6339      movw    r3, 0x9e39
+0000E8  F2C7 6347      movt    r3, 0x7647
+0000EC  4798           blx     r3               // CORINFO_HELP_UNBOX
+
+G_M48067_IG07:
+0000EE  6876           ldr     r6, [r6+4]
+0000F0  683B           ldr     r3, [r7]
+0000F2  F24A 7230      movw    r2, 0xa730
+0000F6  F2C7 12DC      movt    r2, 0x71dc
+0000FA  4293           cmp     r3, r2
+0000FC  D006           beq     SHORT G_M48067_IG08
+0000FE  4639           mov     r1, r7
+000100  4610           mov     r0, r2
+000102  F649 6339      movw    r3, 0x9e39
+000106  F2C7 6347      movt    r3, 0x7647
+00010A  4798           blx     r3               // CORINFO_HELP_UNBOX
+
+G_M48067_IG08:
+00010C  EB08 0306      add     r3, r8, r6
+000110  687A           ldr     r2, [r7+4]
+000112  4413           add     r3, r2
+000114  6063           str     r3, [r4+4]
+000116  1E69           subs    r1, r5, 1
+000118  4620           mov     r0, r4
+00011A  F242 0410      movw    r4, 0x2010
+00011E  F2C7 5493      movt    r4, 0x7593
+000122  F8D4 C000      ldr     r12, [r4]
+000126  47E0           blx     r12
+
+G_M48067_IG09:
+000128  B003           add     sp, 12
+00012A  E8BD 49F0      pop     {r4,r5,r6,r7,r8,r11,lr}
+00012E  4770           bx      lr
+
+; Total bytes of code 304, prolog size 10 for method Class1:Recurse2(int,ref,ref):int:this
+; ============================================================
+; Assembly listing for method Class1:Recurse3(int):int:this
+; Emitting BLENDED_CODE for generic ARM CPU
+; optimized code
+; r11 based frame
+; partially interruptible
+; Final local variable assignments
+;
+;  V00 this         [V00,T01] (  5,   3.5)     ref  ->   r5         this
+;  V01 arg1         [V01,T00] (  8,   5.5)     int  ->   r4
+;  V02 tmp0         [V02,T02] (  3,   3  )     ref  ->   r6
+;  V03 tmp1         [V03,T03] (  3,   3  )     ref  ->   r0
+;  V04 tmp2         [V04,T04] (  2,   2  )     ref  ->   r3
+;  V05 tmp3         [V05,T07] (  2,   2  )     int  ->   r1
+;  V06 tmp4         [V06,T05] (  2,   2  )     ref  ->   r2
+;  V07 tmp5         [V07,T06] (  2,   2  )     ref  ->   r4
+;# V08 OutArgs      [V08    ] (  1,   1  )  lclBlk ( 0) [sp+0x00]
+;
+; Lcl frame size = 4
+
+G_M48065_IG01:
+000000  E92D 4878      push    {r3,r4,r5,r6,r11,lr}
+000004  F10D 0B10      add     r11, sp, 16
+000008  4605           mov     r5, r0
+00000A  460C           mov     r4, r1
+
+G_M48065_IG02:
+00000C  2C00           cmp     r4, 0
+00000E  D103           bne     SHORT G_M48065_IG04
+000010  6868           ldr     r0, [r5+4]
+
+G_M48065_IG03:
+000012  E8BD 4878      pop     {r3,r4,r5,r6,r11,lr}
+000016  4770           bx      lr
+
+G_M48065_IG04:
+000018  4623           mov     r3, r4
+00001A  F240 027F      movw    r2, 0x7f
+00001E  F2C8 0200      movt    r2, 0x8000
+000022  4013           ands    r3, r2
+000024  D503           bpl     SHORT G_M48065_IG05
+000026  3B01           subs    r3, 1
+000028  F063 037F      orn     r3, r3, 127
+00002C  3301           adds    r3, 1
+
+G_M48065_IG05:
+00002E  2B15           cmp     r3, 21
+000030  D109           bne     SHORT G_M48065_IG07
+000032  1E61           subs    r1, r4, 1
+000034  4628           mov     r0, r5
+000036  F24F 7329      movw    r3, 0xf729
+00003A  F2C7 13C4      movt    r3, 0x71c4
+00003E  4798           blx     r3               // Class1:Recurse1(int):int:this
+
+G_M48065_IG06:
+000040  E8BD 4878      pop     {r3,r4,r5,r6,r11,lr}
+000044  4770           bx      lr
+
+G_M48065_IG07:
+000046  F24A 7030      movw    r0, 0xa730
+00004A  F2C7 10DC      movt    r0, 0x71dc
+00004E  F646 5339      movw    r3, 0x6d39
+000052  F2C7 6347      movt    r3, 0x7647
+000056  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+000058  4606           mov     r6, r0
+00005A  F24A 7030      movw    r0, 0xa730
+00005E  F2C7 10DC      movt    r0, 0x71dc
+000062  F646 5339      movw    r3, 0x6d39
+000066  F2C7 6347      movt    r3, 0x7647
+00006A  4798           blx     r3               // CORINFO_HELP_NEWSFAST
+00006C  462B           mov     r3, r5
+00006E  1E61           subs    r1, r4, 1
+000070  1C62           adds    r2, r4, 1
+000072  6072           str     r2, [r6+4]
+000074  4632           mov     r2, r6
+000076  3402           adds    r4, 2
+000078  6044           str     r4, [r0+4]
+00007A  4604           mov     r4, r0
+00007C  4618           mov     r0, r3
+00007E  4623           mov     r3, r4
+000080  F242 0414      movw    r4, 0x2014
+000084  F2C7 5493      movt    r4, 0x7593
+000088  F8D4 C000      ldr     r12, [r4]
+00008C  47E0           blx     r12
+
+G_M48065_IG08:
+00008E  E8BD 4878      pop     {r3,r4,r5,r6,r11,lr}
+000092  4770           bx      lr
+
+; Total bytes of code 148, prolog size 8 for method Class1:Recurse3(int):int:this
+; ============================================================
+; Assembly listing for method Class1:Recurse4(int,ref,ref):int:this
+; Emitting BLENDED_CODE for generic ARM CPU
+; optimized code
+; r11 based frame
+; partially interruptible
+; Final local variable assignments
+;
+;  V00 this         [V00,T00] (  6,   4  )     ref  ->   r4         this
+;  V01 arg1         [V01,T01] (  5,   4  )     int  ->   r5
+;  V02 arg2         [V02,T02] (  5,   3.2)     ref  ->   r6
+;  V03 arg3         [V03,T03] (  5,   3.2)     ref  ->   r7
+;  V04 loc0         [V04,T04] (  5,   2.5)     ref  ->   r8
+;  V05 tmp0         [V05,T05] (  2,   2  )     int  ->   r8
+;  V06 tmp1         [V06,T06] (  2,   2  )     int  ->   r6
+;  V07 tmp2         [V07,T07] (  2,   2  )     int  ->   r1
+;  V08 OutArgs      [V08    ] (  1,   1  )  lclBlk ( 4) [sp+0x00]
+;
+; Lcl frame size = 12
+
+G_M48073_IG01:
+000000  E92D 49F0      push    {r4,r5,r6,r7,r8,r11,lr}
+000004  B083           sub     sp, 12
+000006  F10D 0B20      add     r11, sp, 32
+00000A  4604           mov     r4, r0
+00000C  460D           mov     r5, r1
+00000E  4616           mov     r6, r2
+000010  461F           mov     r7, r3
+
+G_M48073_IG02:
+000012  2D00           cmp     r5, 0
+000014  D104           bne     SHORT G_M48073_IG04
+000016  6860           ldr     r0, [r4+4]
+
+G_M48073_IG03:
+000018  B003           add     sp, 12
+00001A  E8BD 49F0      pop     {r4,r5,r6,r7,r8,r11,lr}
+00001E  4770           bx      lr
+
+G_M48073_IG04:
+000020  F246 00DC      movw    r0, 0x60dc
+000024  F2C7 5095      movt    r0, 0x7595
+000028  6800           ldr     r0, [r0]
+00002A  210A           movs    r1, 10
+00002C  F64E 2375      movw    r3, 0xea75
+000030  F2C7 6346      movt    r3, 0x7646
+000034  4798           blx     r3               // CORINFO_HELP_DIV
+000036  4601           mov     r1, r0
+000038  4628           mov     r0, r5
+00003A  F64E 3321      movw    r3, 0xeb21
+00003E  F2C7 6346      movt    r3, 0x7646
+000042  4798           blx     r3               // CORINFO_HELP_MOD
+000044  28C8           cmp     r0, 200
+000046  D142           bne     SHORT G_M48073_IG05
+000048  F04F 30FF      mov     r0, -1
+00004C  2102           movs    r1, 2
+00004E  F24B 6331      movw    r3, 0xb631
+000052  F2C7 13C8      movt    r3, 0x71c8
+000056  4798           blx     r3               // System.GC:_Collect(int,int)
+000058  F64B 6331      movw    r3, 0xbe31
+00005C  F2C7 13DD      movt    r3, 0x71dd
+000060  4798           blx     r3               // System.Environment:get_StackTrace():ref
+000062  4680           mov     r8, r0
+000064  F8D8 3000      ldr     r3, [r8]
+000068  2300           movs    r3, 0
+00006A  9300           str     r3, [sp]
+00006C  F242 339C      movw    r3, 0x239c
+000070  F2C7 3360      movt    r3, 0x7360
+000074  6819           ldr     r1, [r3]
+000076  F8D8 3004      ldr     r3, [r8+4]
+00007A  4640           mov     r0, r8
+00007C  2200           movs    r2, 0
+00007E  F64A 5EE9      movw    lr, 0xade9
+000082  F2C7 1ED1      movt    lr, 0x71d1
+000086  47F0           blx     lr               // System.String:IndexOf(ref,int,int,int):
+int:this
+000088  F1B0 3FFF      cmp     r0, -1
+00008C  D11F           bne     SHORT G_M48073_IG05
+00008E  F242 33A0      movw    r3, 0x23a0
+000092  F2C7 3360      movt    r3, 0x7360
+000096  6818           ldr     r0, [r3]
+000098  4641           mov     r1, r8
+00009A  F24C 53CD      movw    r3, 0xc5cd
+00009E  F2C7 13DD      movt    r3, 0x71dd
+0000A2  4798           blx     r3               // System.String:Concat(ref,ref):ref
+0000A4  F64C 13A5      movw    r3, 0xc9a5
+0000A8  F2C7 13C4      movt    r3, 0x71c4
+0000AC  4798           blx     r3               // System.Console:WriteLine(ref)
+0000AE  F242 3364      movw    r3, 0x2364
+0000B2  F2C7 3360      movt    r3, 0x7360
+0000B6  6818           ldr     r0, [r3]
+0000B8  F64C 13A5      movw    r3, 0xc9a5
+0000BC  F2C7 13C4      movt    r3, 0x71c4
+0000C0  4798           blx     r3               // System.Console:WriteLine(ref)
+0000C2  2000           movs    r0, 0
+0000C4  F64B 5311      movw    r3, 0xbd11
+0000C8  F2C7 13DD      movt    r3, 0x71dd
+0000CC  4798           blx     r3               // System.Environment:Exit(int)
+
+G_M48073_IG05:
+0000CE  F8D4 8004      ldr     r8, [r4+4]
+0000D2  6833           ldr     r3, [r6]
+0000D4  F24A 7230      movw    r2, 0xa730
+0000D8  F2C7 12DC      movt    r2, 0x71dc
+0000DC  4293           cmp     r3, r2
+0000DE  D006           beq     SHORT G_M48073_IG06
+0000E0  4631           mov     r1, r6
+0000E2  4610           mov     r0, r2
+0000E4  F649 6339      movw    r3, 0x9e39
+0000E8  F2C7 6347      movt    r3, 0x7647
+0000EC  4798           blx     r3               // CORINFO_HELP_UNBOX
+
+G_M48073_IG06:
+0000EE  6876           ldr     r6, [r6+4]
+0000F0  683B           ldr     r3, [r7]
+0000F2  F24A 7230      movw    r2, 0xa730
+0000F6  F2C7 12DC      movt    r2, 0x71dc
+0000FA  4293           cmp     r3, r2
+0000FC  D006           beq     SHORT G_M48073_IG07
+0000FE  4639           mov     r1, r7
+000100  4610           mov     r0, r2
+000102  F649 6339      movw    r3, 0x9e39
+000106  F2C7 6347      movt    r3, 0x7647
+00010A  4798           blx     r3               // CORINFO_HELP_UNBOX
+
+G_M48073_IG07:
+00010C  EB08 0306      add     r3, r8, r6
+000110  687A           ldr     r2, [r7+4]
+000112  4413           add     r3, r2
+000114  6063           str     r3, [r4+4]
+000116  1E69           subs    r1, r5, 1
+000118  4620           mov     r0, r4
+00011A  F24F 7329      movw    r3, 0xf729
+00011E  F2C7 13C4      movt    r3, 0x71c4
+000122  4798           blx     r3               // Class1:Recurse1(int):int:this
+
+G_M48073_IG08:
+000124  B003           add     sp, 12
+000126  E8BD 49F0      pop     {r4,r5,r6,r7,r8,r11,lr}
+00012A  4770           bx      lr
+
+; Total bytes of code 300, prolog size 10 for method Class1:Recurse4(int,ref,ref):int:this
+; ==========================================================
