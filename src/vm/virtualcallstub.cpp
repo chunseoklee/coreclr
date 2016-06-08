@@ -1865,7 +1865,7 @@ PCODE VirtualCallStubManager::ResolveWorker(StubCallSite* pCallSite,
 #endif
 
                     // First see if we've already created a resolve stub for this token
-                    if (resolvers->SetUpProber(token.To_SIZE_T(), 0, &probeR))
+                    if (false && resolvers->SetUpProber(token.To_SIZE_T(), 0, &probeR))
                     {
                         // Find the right resolver, make it if necessary
                         PCODE addrOfResolver = (PCODE)(resolvers->Find(&probeR));
@@ -1894,7 +1894,7 @@ PCODE VirtualCallStubManager::ResolveWorker(StubCallSite* pCallSite,
                     //  3. The call site is currently wired to a lookup stub. If the call site is wired
                     //     to anything else, then we're never going to use the dispatch stub so there's
                     //     no use in creating it.
-                    if (pResolveHolder != NULL && stubKind == SK_LOOKUP)
+                    if (false && pResolveHolder != NULL && stubKind == SK_LOOKUP)
                     {
                         DispatchEntry entryD;
                         Prober probeD(&entryD);
@@ -2021,7 +2021,7 @@ PCODE VirtualCallStubManager::ResolveWorker(StubCallSite* pCallSite,
 
                         UINT32 coin = UINT32(GetRandomInt(100));
 
-                        if (coin < STUB_COLLIDE_MONO_PCT)
+                        if (false && coin < STUB_COLLIDE_MONO_PCT)
                         {
                             DispatchEntry entryD;
                             Prober probeD(&entryD);
