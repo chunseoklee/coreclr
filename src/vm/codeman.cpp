@@ -4458,7 +4458,7 @@ RangeSection* ExecutionManager::GetRangeSection(TADDR addr)
     // where this sort of caching actually diminishes scaling during server GC
     // due to many processors writing to a common location
     if (g_SystemInfo.dwNumberOfProcessors < 4 || !GCHeap::IsServerHeap() || !GCHeap::IsGCInProgress())
-        pHead->pLastUsed = pLast;
+      pHead->pLastUsed = NULL;//pLast;
 #endif
 
     return pCurr;
