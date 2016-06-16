@@ -19,6 +19,7 @@
 #include "eedbginterfaceimpl.inl"
 #include "perfcounters.h"
 #include "eventtrace.h"
+#include "virtualcallstub.h"
 
 #ifndef DACCESS_COMPILE
 
@@ -4663,6 +4664,10 @@ VOID DECLSPEC_NORETURN DispatchManagedException(PAL_SEHException& ex)
                     // Unwind to the managed caller of the helper
                     PAL_VirtualUnwind(&frameContext, NULL);
                 }
+                if (IsDispatchStub(&frameContext)) { // access violation on DispatchStub
+                    AdjustContextForVirtualStub(&ex.ExceptionRecord, &frameContext);
+                }
+            
             }
             else
             {
@@ -5080,8 +5085,10 @@ BOOL PALAPI IsSafeToHandleHardwareException(PCONTEXT contextRecord, PEXCEPTION_R
         exceptionRecord->ExceptionCode == STATUS_BREAKPOINT || 
         exceptionRecord->ExceptionCode == STATUS_SINGLE_STEP ||
         (IsSafeToCallExecutionManager() && ExecutionManager::IsManagedCode(controlPc)) ||
+        IsDispatchStub(contextRecord) ||  // access violation comes from DispatchStub of Interface call
         IsIPInMarkedJitHelper(controlPc));
 }
+
 
 VOID PALAPI HandleHardwareException(PAL_SEHException* ex)
 {
@@ -5106,6 +5113,7 @@ VOID PALAPI HandleHardwareException(PAL_SEHException* ex)
         {
             GCX_COOP();     // Must be cooperative to modify frame chain.
             CONTEXT context = ex->ContextRecord;
+            EXCEPTION_RECORD ER = ex->ExceptionRecord;     
             if (IsIPInMarkedJitHelper(controlPc))
             {
                 // For JIT helpers, we need to set the frame to point to the
@@ -5113,6 +5121,9 @@ VOID PALAPI HandleHardwareException(PAL_SEHException* ex)
                 // walker would skip all the managed frames upto the next
                 // explicit frame.
                 Thread::VirtualUnwindLeafCallFrame(&context);
+            }
+            else if (IsDispatchStub(&context)) { // exception on DispatchStub)
+                AdjustContextForVirtualStub(&ER, &context);
             }
             fef.InitAndLink(&context);
         }
