@@ -1444,7 +1444,8 @@ void ExceptionTracker::InitializeCrawlFrame(CrawlFrame* pcfThisFrame, Thread* pT
     // For async exceptions (e.g. AV), this will be false.
     //
     // We decrement by two to be in accordance with how the kernel does as well.
-    if (pDispatcherContext->ControlPcIsUnwound)
+    if ( (pDispatcherContext->ContextRecord->ContextFlags & CONTEXT_UNWOUND_TO_CALL)
+         || !(pDispatcherContext->ContextRecord->ContextFlags & CONTEXT_EXCEPTION_ACTIVE) )
     {
         ControlPCForEHSearch -= STACKWALK_CONTROLPC_ADJUST_OFFSET;
         if (fAdjustRegdisplayControlPC == true)
@@ -4384,9 +4385,6 @@ VOID UnwindManagedExceptionPass2(PAL_SEHException& ex, CONTEXT* unwindStartConte
         dispatcherContext.FunctionEntry = codeInfo.GetFunctionEntry();
         dispatcherContext.ControlPc = controlPc;
         dispatcherContext.ImageBase = codeInfo.GetModuleBase();
-#if defined(_TARGET_ARM_)
-        dispatcherContext.ControlPcIsUnwound = !!(currentFrameContext->ContextFlags & CONTEXT_UNWOUND_TO_CALL);
-#endif
         // Check whether we have a function table entry for the current controlPC.
         // If yes, then call RtlVirtualUnwind to get the establisher frame pointer.
         if (dispatcherContext.FunctionEntry != NULL)
@@ -4532,9 +4530,6 @@ VOID DECLSPEC_NORETURN UnwindManagedExceptionPass1(PAL_SEHException& ex, CONTEXT
         dispatcherContext.FunctionEntry = codeInfo.GetFunctionEntry();
         dispatcherContext.ControlPc = controlPc;
         dispatcherContext.ImageBase = codeInfo.GetModuleBase();
-#if defined(_TARGET_ARM_) 
-        dispatcherContext.ControlPcIsUnwound = !!(frameContext->ContextFlags & CONTEXT_UNWOUND_TO_CALL);
-#endif
 
         // Check whether we have a function table entry for the current controlPC.
         // If yes, then call RtlVirtualUnwind to get the establisher frame pointer
