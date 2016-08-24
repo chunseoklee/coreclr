@@ -513,9 +513,9 @@ void NotifyGdb::MethodCompiled(MethodDesc* MethodDescPtr)
 
     memcpy(elfFile.MemPtr + offset, sectHeaders.MemPtr, sectHeaders.MemSize);
 
-    FILE *f = fopen("/home/epavlov/test/test.o", "w");
+    /*FILE *f = fopen("/home/epavlov/test/test.o", "w");
     fwrite(elfFile.MemPtr, sizeof(char),elfFile.MemSize, f);
-    fclose(f);
+    fclose(f);*/
 
     /* Create GDB JIT structures */
     jit_code_entry* jit_symbols = new (nothrow) jit_code_entry;
