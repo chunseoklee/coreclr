@@ -271,7 +271,7 @@ void NotifyGdb::MethodCompiled(MethodDesc* MethodDescPtr)
 
     /* Get method name & size of jitted code */
     LPCUTF8 methodName = MethodDescPtr->GetName();
-    printf("Method compiled: %s\n", methodName);
+    //printf("Method compiled: %s\n", methodName);
     EECodeInfo codeInfo(pCode);
     TADDR codeSize = codeInfo.GetCodeManager()->GetFunctionSize(codeInfo.GetGCInfoToken());
     
@@ -285,7 +285,7 @@ void NotifyGdb::MethodCompiled(MethodDesc* MethodDescPtr)
     StackScratchBuffer scratch;
     const char* szModName = modName.GetUTF8(scratch);
     const char *szModulePath, *szModuleFile;
-    printf("Module File: %s\n", szModName);
+    //printf("Module File: %s\n", szModName);
     SplitPathname(szModName, szModulePath, szModuleFile);
 
 
@@ -308,7 +308,7 @@ void NotifyGdb::MethodCompiled(MethodDesc* MethodDescPtr)
         cCharsNeeded = GetEnvironmentVariableW(W("CORECLR_GDBJIT"), wszModuleNames, cCharsNeeded);
         if (cCharsNeeded != 0)
         {
-            printf("\nCORECLR_GDBJIT=%S\n", wszModuleNames);
+            //printf("\nCORECLR_GDBJIT=%S\n", wszModuleNames);
             LPWSTR wszModuleName = new WCHAR[cCharsNeeded+1];
             LPWSTR pComma = wcsstr(wszModuleNames, W(","));
             LPWSTR tmp = wszModuleNames;
@@ -322,13 +322,13 @@ void NotifyGdb::MethodCompiled(MethodDesc* MethodDescPtr)
                 {
                     isUserDebug = TRUE;
                 }
-                printf("Module Name = %S\n", wszModuleName);
+                //printf("Module Name = %S\n", wszModuleName);
                 tmp = pComma + 1;
                 pComma = wcsstr(tmp, W(","));
             }
             wcsncpy(wszModuleName, tmp, wcslen(tmp));
             wszModuleName[wcslen(tmp)] = W('\0');
-            printf("Module Name = %S\n", wszModuleName);
+            //printf("Module Name = %S\n", wszModuleName);
             if (wcscmp(wszModuleName, wszModuleFile) == 0)
             {
                 isUserDebug = TRUE;
