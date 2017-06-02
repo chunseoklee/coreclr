@@ -80,6 +80,7 @@ else()
 endif(WIN32)
 
 target_link_libraries(dbgshim ${DBGSHIM_LIBRARIES})
+add_subdirectory(netcore-debugger)
 
 # add the install targets
 install_clr(dbgshim)
