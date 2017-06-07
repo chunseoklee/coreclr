@@ -1770,6 +1770,7 @@ public:
             // Wait until the coreclr runtime (debuggee) starts up
             if (sem_wait(m_startupSem) == 0)
             {
+              TRACE("sem_wait(startup) end by debugee's wake up call\n");
                 pe = InvokeStartupCallback();
             }
             else
@@ -1926,7 +1927,7 @@ PAL_NotifyRuntimeStarted()
         ASSERT("sem_post(startupSem) failed: errno is %d (%s)\n", errno, strerror(errno));
         goto exit;
     }
-
+    TRACE("debugee wakes up debugger with startupSem.\n");
     // Now wait until the debugger's runtime startup notification is finished
     if (sem_wait(continueSem) != 0)
     {
