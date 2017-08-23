@@ -32,4 +32,6 @@ if(NOT CLR_CMAKE_PLATFORM_ANDROID)
   )
 endif()
 
+set_target_properties(corerun PROPERTIES LINK_FLAGS -pie)
+
 install_clr(corerun)
