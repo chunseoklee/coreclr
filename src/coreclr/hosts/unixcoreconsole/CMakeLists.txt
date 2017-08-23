@@ -31,4 +31,6 @@ if(NOT CLR_CMAKE_PLATFORM_ANDROID)
   )
 endif()
 
+set_target_properties(coreconsole PROPERTIES LINK_FLAGS -pie)
+
 install_clr(coreconsole)

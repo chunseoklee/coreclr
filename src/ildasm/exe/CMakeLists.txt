@@ -54,6 +54,7 @@ if(CLR_CMAKE_PLATFORM_UNIX)
         coreclrpal
         palrt
     )
+    set_target_properties(ildasm PROPERTIES LINK_FLAGS -pie)
 
     # FreeBSD and NetBSD implement dlopen(3) in libc
     if(NOT CMAKE_SYSTEM_NAME STREQUAL FreeBSD AND NOT CMAKE_SYSTEM_NAME STREQUAL NetBSD)

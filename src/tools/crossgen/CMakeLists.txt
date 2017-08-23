@@ -50,6 +50,7 @@ if(CLR_CMAKE_PLATFORM_UNIX)
         coreclrpal
         palrt
     )
+    set_target_properties(crossgen PROPERTIES LINK_FLAGS -pie)
 else()
     target_link_libraries(crossgen
         advapi32

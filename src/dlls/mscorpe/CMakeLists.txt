@@ -12,6 +12,7 @@ set(MSCORPE_SOURCES
 if(WIN32)
 else()
   add_compile_options(-Wno-delete-non-virtual-dtor)
+  add_compile_options(-fPIC)
 endif(WIN32)
 
 add_library_clr(mscorpe STATIC
